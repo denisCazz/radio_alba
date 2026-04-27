@@ -1,0 +1,575 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const shows = [
+	{
+		time: '06:00 - 09:00',
+		title: 'Prima Alba',
+		description: 'Rassegna stampa, meteo di Langa e traffico locale con un tono fresco e rapido.',
+		host: 'Con Marta e Davide',
+	},
+	{
+		time: '10:00 - 12:00',
+		title: 'Piazza Savona',
+		description: 'Attualita, eventi e voci dal territorio tra Alba, Bra, Roero e Astigiano.',
+		host: 'Con Elena Riva',
+	},
+	{
+		time: '16:00 - 18:00',
+		title: 'Langhe Drive',
+		description: 'Hit, notizie utili e collegamenti veloci per chi rientra a casa o in cantina.',
+		host: 'Con Andre Bertaina',
+	},
+	{
+		time: '18:30 - 19:30',
+		title: 'Barolo Tech',
+		description: 'Format digitale su startup locali, AI per PMI e innovazione applicata al territorio.',
+		host: 'Con Giulia Ferrero',
+	},
+	{
+		time: '20:00 - 21:00',
+		title: 'Studio Aperto Langhe',
+		description: 'Interviste in studio a sindaci, artigiani, associazioni e protagonisti della provincia.',
+		host: 'Con redazione Radio Alba',
+	},
+	{
+		time: 'Weekend',
+		title: 'Nebbiolo Sessions',
+		description: 'Selezione musicale piu ricercata, storytelling e live set in esterna dai festival.',
+		host: 'Con guest selector',
+	},
+];
+
+const interviews = [
+	{
+		tag: 'Video intervista',
+		title: 'Vinum 2026: il centro storico torna palco diffuso',
+		description: 'Un formato editoriale piu premium, con taglio da media house locale e attenzione ai volti del territorio.',
+		image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=900&q=80',
+		link: '#social',
+	},
+	{
+		tag: 'Comunity',
+		title: 'Fondazioni, scuole e sport: un’agenda locale chiara',
+		description: 'Card editoriali snelle, visual forti e CTA leggibili su mobile senza disperdere attenzione.',
+		image: 'https://images.unsplash.com/photo-1515169067868-5387ec356754?auto=format&fit=crop&w=900&q=80',
+		link: '#palinsesto',
+	},
+	{
+		tag: 'On demand',
+		title: 'Ogni rubrica diventa clip, podcast e short social',
+		description: 'Una homepage pensata per spingere ascolto live e contenuti riutilizzabili su piu canali.',
+		image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=900&q=80',
+		link: '#podcast',
+	},
+];
+
+const podcasts = [
+	{
+		meta: 'Nuovo episodio',
+		title: 'Cronache di Langa',
+		description: 'Racconti brevi, cultura e imprenditoria di Alba e dintorni in formato seriale.',
+		audio: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+	},
+	{
+		meta: 'Talk',
+		title: 'Microfono Aperto Piemonte',
+		description: 'Dialoghi piu strutturati con amministratori, comunicatori e operatori del territorio.',
+		audio: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
+	},
+	{
+		meta: 'Speciale',
+		title: 'Dentro il Festival',
+		description: 'Backstage, clip verticali e recap audio di eventi locali con montaggio piu contemporaneo.',
+		audio: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
+	},
+];
+
+const gallery = [
+	{
+		className: 'gallery-card gallery-card--tall',
+		image: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=900&q=80',
+		title: 'Festival e piazze vive',
+		description: 'La radio come presidio culturale sul territorio.',
+	},
+	{
+		className: 'gallery-card gallery-card--wide',
+		image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1200&q=80',
+		title: 'Studio visuale e social-ready',
+		description: 'Setup pensato per live, clip e contenuti sponsorizzabili.',
+	},
+	{
+		className: 'gallery-card',
+		image: 'https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=80',
+		title: 'Voce e community',
+		description: 'Interazione diretta con ascoltatori e partner locali.',
+	},
+	{
+		className: 'gallery-card',
+		image: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=900&q=80',
+		title: 'Brand activation',
+		description: 'Spazi sponsor integrati con una resa premium.',
+	},
+];
+
+const topTracks = [
+	{
+		rank: '01',
+		title: 'Sotto i Portici',
+		artist: 'Marta Vento',
+		description: 'Pop raffinato, ritmica contemporanea e un immaginario fortemente piemontese.',
+	},
+	{
+		rank: '02',
+		title: 'Corsa in Corso Europa',
+		artist: 'Neve Chiara',
+		description: 'Brano radiofonico pensato per drive time, hook immediato e produzione pulita.',
+	},
+	{
+		rank: '03',
+		title: 'Langhe Neon',
+		artist: 'I Collinari',
+		description: 'Synth-pop locale per una playlist che suona moderna senza perdere radici.',
+	},
+];
+
+const sponsors = [
+	{
+		title: 'Partner premium',
+		description: 'Formati high-impact per concessionarie, eventi, food e realta storiche del territorio.',
+		image: 'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80',
+	},
+	{
+		title: 'Spazi branded',
+		description: 'Banner, clip, segmenti audio e storytelling sponsor in un’unica UX coerente.',
+		image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80',
+	},
+	{
+		title: 'Distribuzione smart',
+		description: 'Homepage modulare, contenuti live e repack automatico per social e podcast.',
+		image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80',
+	},
+];
+
+const socialCards = [
+	{
+		title: 'Instagram & Facebook',
+		description: 'Stories, backstage e copertura eventi con grafiche coordinate.',
+		image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80',
+		cta: 'Apri profili',
+	},
+	{
+		title: 'YouTube & Shorts',
+		description: 'Interviste video, rubriche e format brevi pensati per distribuzione continua.',
+		image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=900&q=80',
+		cta: 'Guarda i video',
+	},
+	{
+		title: 'WhatsApp community',
+		description: 'Alert live, palinsesto e notizie utility inviate con tono editoriale.',
+		image: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80',
+		cta: 'Entra nel canale',
+	},
+];
+
+const features = [
+	{
+		title: 'Player persistente',
+		description: 'Ascolto live sempre disponibile con barra fissa, stato visivo e fallback rapido.',
+	},
+	{
+		title: 'Homepage editoriale',
+		description: 'La gerarchia dei contenuti privilegia live, programmi, sponsor e on demand.',
+	},
+	{
+		title: 'Mobile-first reale',
+		description: 'CTA leggibili, moduli grandi, layout chiaro e interazione immediata da smartphone.',
+	},
+];
+
+const manifesto = [
+	{
+		title: 'Territorio, non template',
+		description: 'Linguaggio visivo caldo, autorevole e con richiami a vino, piazze, colline e cultura locale.',
+	},
+	{
+		title: 'Più conversione',
+		description: 'Le CTA principali portano a tre azioni utili: ascoltare, scoprire il palinsesto, attivare partnership.',
+	},
+	{
+		title: 'Pronto a crescere',
+		description: 'Il progetto puo evolvere in CMS, podcast hub, app o membership senza dover rifare la UI.',
+	},
+];
+
+const streamUrl = 'https://stream.live.vc.bbcmedia.co.uk/bbc_radio_one';
+---
+
+<Layout
+	title="Radio Alba | Demo moderna in Astro"
+	description="Demo moderna per Radio Alba: live player, palinsesto, podcast, sponsor e UI editoriale pensata per il territorio piemontese."
+>
+	<div class="page-shell">
+		<div class="page-content">
+			<header class="topbar" id="topbar" data-open="false">
+				<a class="brand" href="#home" aria-label="Vai alla home Radio Alba">
+					<div class="brand-mark">RA</div>
+					<div class="brand-copy">
+						<strong>Radio Alba</strong>
+						<span>La voce contemporanea delle Langhe</span>
+					</div>
+				</a>
+
+				<nav class="nav-links" aria-label="Navigazione principale">
+					<a href="#palinsesto">Palinsesto</a>
+					<a href="#interviste">Interviste</a>
+					<a href="#podcast">Podcast</a>
+					<a href="#gallery">Gallery</a>
+					<a href="#social">Social</a>
+				</nav>
+
+				<div class="topbar-actions">
+					<span class="live-pill">In onda ora</span>
+					<a class="cta" href="#player">Ascolta ora</a>
+				</div>
+
+				<button class="mobile-menu" id="menuToggle" type="button" aria-expanded="false" aria-controls="topbar">
+					<span class="sr-only">Apri menu</span>
+					☰
+				</button>
+			</header>
+
+			<main id="home" class="surface hero">
+				<div class="hero-copy">
+					<div>
+						<span class="eyebrow">Demo homepage 2026</span>
+						<h1>Una radio locale con presenza digitale da media brand.</h1>
+						<p>
+							Concept moderno per Radio Alba: piu leggibilita, piu identita territoriale, player persistente,
+							spazi sponsor premium e contenuti live/on demand pronti per crescere.
+						</p>
+					</div>
+
+					<div class="hero-actions">
+						<a class="cta" href="#player">Avvia il live player</a>
+						<a class="cta-secondary" href="#palinsesto">Scopri il palinsesto</a>
+						<a class="chip-button" href="#contatti">Partnership locali</a>
+					</div>
+
+					<div class="hero-stats">
+						<div class="stat-card">
+							<strong>24/7</strong>
+							<span>Flusso live sempre in primo piano, anche da mobile.</span>
+						</div>
+						<div class="stat-card">
+							<strong>3x</strong>
+							<span>Più focus su sponsor, video, podcast e formati riutilizzabili.</span>
+						</div>
+						<div class="stat-card">
+							<strong>1 UI</strong>
+							<span>Un sistema coerente per news, eventi, audio e social.</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="hero-side">
+					<div class="live-card">
+						<div class="live-card-top">
+							<div class="equalizer" aria-hidden="true">
+								<span></span><span></span><span></span><span></span>
+							</div>
+							<div>
+								<span class="tag">Stream live</span>
+								<h2 style="margin: 10px 0 8px; font-size: 1.8rem;">Più energia, meno rumore visivo.</h2>
+								<p class="muted">Una home pensata per convertire l’ascolto e dare piu valore ai contenuti locali.</p>
+							</div>
+						</div>
+
+						<div class="live-track">
+							<div>
+								<div class="track-badge">On air now</div>
+								<strong style="display: block; margin-top: 10px; font-size: 1.15rem;">Langhe Drive x Community Update</strong>
+								<div class="muted">Notizie utili, promo eventi e scaletta musicale piu dinamica.</div>
+							</div>
+							<a class="cta-secondary" href="#podcast">Recupera episodi</a>
+						</div>
+
+						<div class="feature-grid">
+							{features.map((feature) => (
+								<div class="feature-card">
+									<h3>{feature.title}</h3>
+									<p>{feature.description}</p>
+								</div>
+							))}
+						</div>
+					</div>
+
+					<article class="hero-visual sponsor-card">
+						<img
+							src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1200&q=80"
+							alt="Concerto e community per una radio locale moderna"
+						/>
+						<div class="hero-visual-copy">
+							<strong style="display:block; font-size:1.15rem; margin-bottom:6px;">Una voce locale che si presenta come un brand.</strong>
+							<span class="muted">Visual premium, contrasto migliore e componenti pensati per crescere in produzione.</span>
+						</div>
+					</article>
+				</div>
+			</main>
+
+			<section class="surface section" aria-labelledby="manifesto-title">
+				<div class="section-heading">
+					<div>
+						<span class="eyebrow">Posizionamento</span>
+						<h2 id="manifesto-title">Nuovo stile, stessa vicinanza al territorio.</h2>
+					</div>
+					<p>Il concept rilegge Radio Alba come piattaforma editoriale locale, non come semplice sito vetrina.</p>
+				</div>
+				<div class="manifesto-grid">
+					{manifesto.map((item) => (
+						<div class="manifesto-card">
+							<h3>{item.title}</h3>
+							<p>{item.description}</p>
+						</div>
+					))}
+				</div>
+			</section>
+
+			<section class="surface section" id="palinsesto" aria-labelledby="palinsesto-title">
+				<div class="section-heading">
+					<div>
+						<span class="eyebrow">Palinsesto</span>
+						<h2 id="palinsesto-title">Programmi leggibili e con gerarchia chiara.</h2>
+					</div>
+					<p>Ogni fascia oraria diventa un prodotto editoriale con conduttori, tono e ruolo percepibili al primo colpo.</p>
+				</div>
+				<div class="shows-grid">
+					{shows.map((show) => (
+						<article class="show-card">
+							<time>{show.time}</time>
+							<h3>{show.title}</h3>
+							<p>{show.description}</p>
+							<div class="card-actions" style="margin-top: 16px;">
+								<span class="tag">{show.host}</span>
+								<a class="cta-secondary" href="#player">Ascolta live</a>
+							</div>
+						</article>
+					))}
+				</div>
+			</section>
+
+			<section class="surface section" aria-labelledby="sponsor-title">
+				<div class="section-heading">
+					<div>
+						<span class="eyebrow">Partner e adv</span>
+						<h2 id="sponsor-title">Spazi sponsor più forti, senza sembrare un collage.</h2>
+					</div>
+					<p>Il modello richiama il sito attuale, ma porta ordine, respiro e un impatto visivo piu coerente.</p>
+				</div>
+				<div class="sponsor-grid">
+					{sponsors.map((item) => (
+						<article class="sponsor-card">
+							<img src={item.image} alt={item.title} loading="lazy" />
+							<div class="sponsor-overlay">
+								<span class="tag">Sponsor layout</span>
+								<h3>{item.title}</h3>
+								<p>{item.description}</p>
+							</div>
+						</article>
+					))}
+				</div>
+			</section>
+
+			<section class="surface section" id="interviste" aria-labelledby="interviste-title">
+				<div class="section-heading">
+					<div>
+						<span class="eyebrow">Interviste e video</span>
+						<h2 id="interviste-title">Contenuti locali messi in scena come format.</h2>
+					</div>
+					<p>Ogni rubrica puo vivere in homepage, clip, social, podcast e playlist senza perdere identita.</p>
+				</div>
+				<div class="shows-grid">
+					{interviews.map((item) => (
+						<a class="interview-card" href={item.link}>
+							<div style="overflow:hidden; border-radius:18px; min-height:220px; margin-bottom:18px;">
+								<img src={item.image} alt={item.title} loading="lazy" style="height:100%; width:100%; object-fit:cover;" />
+							</div>
+							<span class="tag">{item.tag}</span>
+							<h3>{item.title}</h3>
+							<p>{item.description}</p>
+						</a>
+					))}
+				</div>
+			</section>
+
+			<section class="surface section" id="podcast" aria-labelledby="podcast-title">
+				<div class="section-heading">
+					<div>
+						<span class="eyebrow">Podcast e replay</span>
+						<h2 id="podcast-title">L’on demand entra in homepage con più valore.</h2>
+					</div>
+					<p>Mini player chiari, descrizioni sintetiche e percorsi naturali tra live e contenuti riascoltabili.</p>
+				</div>
+				<div class="podcast-grid">
+					{podcasts.map((podcast) => (
+						<article class="podcast-card">
+							<div class="podcast-meta">{podcast.meta}</div>
+							<h3>{podcast.title}</h3>
+							<p>{podcast.description}</p>
+							<audio class="podcast-player" controls preload="none">
+								<source src={podcast.audio} type="audio/mpeg" />
+							</audio>
+						</article>
+					))}
+				</div>
+			</section>
+
+			<section class="surface section" id="gallery" aria-labelledby="gallery-title">
+				<div class="section-heading">
+					<div>
+						<span class="eyebrow">Gallery</span>
+						<h2 id="gallery-title">Atmosfera locale, resa visiva più contemporanea.</h2>
+					</div>
+					<p>Immagini grandi, ritmi editoriali piu puliti e meno rumore rispetto ad una galleria tradizionale.</p>
+				</div>
+				<div class="gallery-grid">
+					{gallery.map((item) => (
+						<article class={item.className}>
+							<img src={item.image} alt={item.title} loading="lazy" />
+							<div class="gallery-caption">
+								<strong style="display:block; margin-bottom:6px; font-size:1.12rem;">{item.title}</strong>
+								<span class="muted">{item.description}</span>
+							</div>
+						</article>
+					))}
+				</div>
+			</section>
+
+			<section class="surface section" aria-labelledby="playlist-title">
+				<div class="section-heading">
+					<div>
+						<span class="eyebrow">Top 3 playlist</span>
+						<h2 id="playlist-title">Una classifica che sembra parte del brand.</h2>
+					</div>
+					<p>Più ordine tipografico, card compatte e un tono editoriale adatto a una radio locale premium.</p>
+				</div>
+				<div class="playlist-grid">
+					{topTracks.map((track) => (
+						<article class="playlist-card">
+							<div class="playlist-rank">{track.rank}</div>
+							<div>
+								<span class="tag">{track.artist}</span>
+								<h3>{track.title}</h3>
+								<p>{track.description}</p>
+							</div>
+						</article>
+					))}
+				</div>
+			</section>
+
+			<section class="surface section" id="social" aria-labelledby="social-title">
+				<div class="section-heading">
+					<div>
+						<span class="eyebrow">Canali social</span>
+						<h2 id="social-title">Una distribuzione più forte oltre la sola homepage.</h2>
+					</div>
+					<p>Social, video e community diventano estensione naturale della radio, non collegamenti accessori.</p>
+				</div>
+				<div class="social-grid">
+					{socialCards.map((item) => (
+						<article class="social-card">
+							<img src={item.image} alt={item.title} loading="lazy" />
+							<div class="social-overlay">
+								<span>{item.cta}</span>
+								<h3>{item.title}</h3>
+								<p>{item.description}</p>
+							</div>
+						</article>
+					))}
+				</div>
+			</section>
+
+			<footer class="surface section" id="contatti">
+				<div class="footer-grid">
+					<div>
+						<div class="footer-brand">Radio Alba</div>
+						<p class="muted" style="max-width: 48ch; margin-top: 12px;">
+							Demo in Astro per rileggere l’identita della radio con una UI piu contemporanea, editoriale e pronta a evolvere.
+						</p>
+					</div>
+					<div class="footer-contact">
+						<a href="tel:+390173280471">+39 0173 280471</a>
+						<a href="tel:+393347834975">+39 334 7834975</a>
+						<a href="mailto:info@radioalba.it">info@radioalba.it</a>
+						<a href="https://www.radioalba.it">radioalba.it</a>
+					</div>
+					<div class="footer-note">
+						Radio Alba srl<br />
+						C.so Europa 61, Alba<br />
+						P.IVA 03626990042<br />
+						<a href="#home">Torna in alto</a>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+
+	<div class="player-bar" id="player">
+		<button class="player-toggle" id="playerToggle" type="button" aria-pressed="false">Play</button>
+		<div class="player-meta">
+			<div class="player-cover">RA</div>
+			<div>
+				<strong>Radio Alba Live</strong>
+				<div class="player-status" id="playerStatus">Premi play per provare il live stream demo.</div>
+			</div>
+		</div>
+		<div class="player-wave" aria-hidden="true">
+			<span></span><span></span><span></span><span></span>
+		</div>
+		<a class="cta-secondary player-link" href={streamUrl} target="_blank" rel="noreferrer">Apri stream</a>
+		<audio id="radioStream" preload="none">
+			<source src={streamUrl} type="audio/mpeg" />
+		</audio>
+	</div>
+
+	<script is:inline>
+		const topbar = document.getElementById('topbar');
+		const menuToggle = document.getElementById('menuToggle');
+		const playerToggle = document.getElementById('playerToggle');
+		const playerStatus = document.getElementById('playerStatus');
+		const radioStream = document.getElementById('radioStream');
+
+		menuToggle?.addEventListener('click', () => {
+			const isOpen = topbar?.getAttribute('data-open') === 'true';
+			topbar?.setAttribute('data-open', String(!isOpen));
+			menuToggle.setAttribute('aria-expanded', String(!isOpen));
+		});
+
+		const setPlayerState = (isPlaying, message) => {
+			if (!playerToggle || !playerStatus) return;
+			playerToggle.textContent = isPlaying ? 'Pause' : 'Play';
+			playerToggle.setAttribute('aria-pressed', String(isPlaying));
+			playerStatus.textContent = message;
+		};
+
+		playerToggle?.addEventListener('click', async () => {
+			if (!(radioStream instanceof HTMLAudioElement)) return;
+
+			if (radioStream.paused) {
+				try {
+					await radioStream.play();
+					setPlayerState(true, 'Streaming live attivo. Se il browser blocca l’audio, usa il link esterno.');
+				} catch (error) {
+					setPlayerState(false, 'Il live puo richiedere conferma del browser. Usa anche il link Apri stream.');
+				}
+			} else {
+				radioStream.pause();
+				setPlayerState(false, 'Live in pausa. Premi play per riprendere.');
+			}
+		});
+
+		radioStream?.addEventListener('ended', () => {
+			setPlayerState(false, 'La sessione live e terminata. Premi play per riattivarla.');
+		});
+	</script>
+</Layout>
