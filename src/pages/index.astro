@@ -216,21 +216,21 @@ const streamUrl = 'https://stream.live.vc.bbcmedia.co.uk/bbc_radio_one';
 					<div class="brand-mark">RA</div>
 					<div class="brand-copy">
 						<strong>Radio Alba</strong>
-						<span>La voce contemporanea delle Langhe</span>
+						<span>Digitale piu pulito, voce piu forte sul territorio.</span>
 					</div>
 				</a>
 
 				<nav class="nav-links" aria-label="Navigazione principale">
 					<a href="#palinsesto">Palinsesto</a>
-					<a href="#interviste">Interviste</a>
+					<a href="#interviste">Video</a>
 					<a href="#podcast">Podcast</a>
-					<a href="#gallery">Gallery</a>
+					<a href="#gallery">Scene</a>
 					<a href="#social">Social</a>
 				</nav>
 
 				<div class="topbar-actions">
-					<span class="live-pill">In onda ora</span>
-					<a class="cta" href="#player">Ascolta ora</a>
+					<span class="live-pill">In onda</span>
+					<a class="cta" href="#player">Ascolta live</a>
 				</div>
 
 				<button class="mobile-menu" id="menuToggle" type="button" aria-expanded="false" aria-controls="topbar">
@@ -240,160 +240,156 @@ const streamUrl = 'https://stream.live.vc.bbcmedia.co.uk/bbc_radio_one';
 			</header>
 
 			<main id="home" class="surface hero">
-				<div class="hero-copy">
-					<div>
-						<span class="eyebrow">Demo homepage 2026</span>
-						<h1>Una radio locale con presenza digitale da media brand.</h1>
-						<p>
-							Concept moderno per Radio Alba: piu leggibilita, piu identita territoriale, player persistente,
-							spazi sponsor premium e contenuti live/on demand pronti per crescere.
-						</p>
-					</div>
-
-					<div class="hero-actions">
-						<a class="cta" href="#player">Avvia il live player</a>
-						<a class="cta-secondary" href="#palinsesto">Scopri il palinsesto</a>
-						<a class="chip-button" href="#contatti">Partnership locali</a>
-					</div>
-
-					<div class="hero-stats">
-						<div class="stat-card">
-							<strong>24/7</strong>
-							<span>Flusso live sempre in primo piano, anche da mobile.</span>
+				<div class="hero-grid">
+					<div class="hero-copy">
+						<div>
+							<span class="eyebrow">Restyle rapido</span>
+							<h1 class="hero-title">Meno vetrina, piu ritmo editoriale.</h1>
+							<p>
+								Ho reimpostato la pagina con un tono piu netto: tipografia sans piu contemporanea, sezioni piu aperte,
+								meno card decorative e una lettura piu lineare per una radio locale che vuole sembrare davvero attiva.
+							</p>
 						</div>
-						<div class="stat-card">
-							<strong>3x</strong>
-							<span>Più focus su sponsor, video, podcast e formati riutilizzabili.</span>
-						</div>
-						<div class="stat-card">
-							<strong>1 UI</strong>
-							<span>Un sistema coerente per news, eventi, audio e social.</span>
-						</div>
-					</div>
-				</div>
 
-				<div class="hero-side">
-					<div class="live-card">
-						<div class="live-card-top">
-							<div class="equalizer" aria-hidden="true">
-								<span></span><span></span><span></span><span></span>
+						<div class="hero-actions">
+							<a class="cta" href="#player">Avvia player</a>
+							<a class="cta-secondary" href="#palinsesto">Vedi programmi</a>
+							<a class="chip-button" href="#contatti">Contatti commerciali</a>
+						</div>
+
+						<div class="hero-stats">
+							<div class="stat-line">
+								<strong>Live</strong>
+								<span>Subito accessibile e sempre visibile.</span>
 							</div>
-							<div>
-								<span class="tag">Stream live</span>
-								<h2 style="margin: 10px 0 8px; font-size: 1.8rem;">Più energia, meno rumore visivo.</h2>
-								<p class="muted">Una home pensata per convertire l’ascolto e dare piu valore ai contenuti locali.</p>
+							<div class="stat-line">
+								<strong>Local</strong>
+								<span>Palinsesto, volti e sponsor del territorio.</span>
+							</div>
+							<div class="stat-line">
+								<strong>Clean</strong>
+								<span>Gerarchia piu chiara su desktop e mobile.</span>
 							</div>
 						</div>
 
-						<div class="live-track">
-							<div>
-								<div class="track-badge">On air now</div>
-								<strong style="display: block; margin-top: 10px; font-size: 1.15rem;">Langhe Drive x Community Update</strong>
-								<div class="muted">Notizie utili, promo eventi e scaletta musicale piu dinamica.</div>
-							</div>
-							<a class="cta-secondary" href="#podcast">Recupera episodi</a>
+						<div class="hero-meta">
+							<span class="tag">Alba</span>
+							<span class="tag">Langhe</span>
+							<span class="tag">Community</span>
+							<span class="tag">Audio + video</span>
 						</div>
+					</div>
 
-						<div class="feature-grid">
-							{features.map((feature) => (
-								<div class="feature-card">
-									<h3>{feature.title}</h3>
-									<p>{feature.description}</p>
+					<div class="hero-side">
+						<div class="hero-panel">
+							<div class="now-line">
+								<div>
+									<div class="kicker">Adesso in onda</div>
+									<h2>Langhe Drive</h2>
+									<p class="muted">Notizie, viabilita, eventi e una scaletta piu fresca per il rientro.</p>
 								</div>
-							))}
-						</div>
-					</div>
+								<div class="equalizer" aria-hidden="true">
+									<span></span><span></span><span></span><span></span>
+								</div>
+							</div>
 
-					<article class="hero-visual sponsor-card">
-						<img
-							src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1200&q=80"
-							alt="Concerto e community per una radio locale moderna"
-						/>
-						<div class="hero-visual-copy">
-							<strong style="display:block; font-size:1.15rem; margin-bottom:6px;">Una voce locale che si presenta come un brand.</strong>
-							<span class="muted">Visual premium, contrasto migliore e componenti pensati per crescere in produzione.</span>
+							<ul class="compact-list">
+								<li>
+									<strong>18:00</strong>
+									<span>Flash eventi tra Alba, Bra e Roero</span>
+								</li>
+								<li>
+									<strong>18:15</strong>
+									<span>Ospite locale in studio</span>
+								</li>
+								<li>
+									<strong>18:30</strong>
+									<span>Top rotation e community update</span>
+								</li>
+							</ul>
+
+							<div class="audio-hint">
+								<a class="cta-secondary" href="#podcast">Riascolta i podcast</a>
+								<a class="chip-button" href="#social">Guarda i video</a>
+							</div>
 						</div>
-					</article>
+
+						<figure class="hero-image">
+							<img
+								src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1200&q=80"
+								alt="Studio radio moderno con energia live"
+							/>
+							<figcaption>
+								<strong style="display:block; margin-bottom:6px; font-size:1.15rem;">Una home piu ariosa e meno decorativa.</strong>
+								<span>Il focus torna su lettura, ritmo e contenuti davvero utili.</span>
+							</figcaption>
+						</figure>
+					</div>
 				</div>
 			</main>
 
-			<section class="surface section" aria-labelledby="manifesto-title">
+			<section class="surface section">
 				<div class="section-heading">
 					<div>
-						<span class="eyebrow">Posizionamento</span>
-						<h2 id="manifesto-title">Nuovo stile, stessa vicinanza al territorio.</h2>
+						<span class="eyebrow">Direzione visiva</span>
+						<h2>Una radio di Alba puo sembrare attuale senza perdere territorio.</h2>
 					</div>
-					<p>Il concept rilegge Radio Alba come piattaforma editoriale locale, non come semplice sito vetrina.</p>
+					<p>Palette piu chiara, accenti terracotta, font sans piu caratterizzato e molto meno peso visivo inutile.</p>
 				</div>
-				<div class="manifesto-grid">
+				<div class="manifest-grid">
 					{manifesto.map((item) => (
-						<div class="manifesto-card">
+						<article class="manifest-card">
+							<span class="kicker">Concept</span>
 							<h3>{item.title}</h3>
 							<p>{item.description}</p>
-						</div>
-					))}
-				</div>
-			</section>
-
-			<section class="surface section" id="palinsesto" aria-labelledby="palinsesto-title">
-				<div class="section-heading">
-					<div>
-						<span class="eyebrow">Palinsesto</span>
-						<h2 id="palinsesto-title">Programmi leggibili e con gerarchia chiara.</h2>
-					</div>
-					<p>Ogni fascia oraria diventa un prodotto editoriale con conduttori, tono e ruolo percepibili al primo colpo.</p>
-				</div>
-				<div class="shows-grid">
-					{shows.map((show) => (
-						<article class="show-card">
-							<time>{show.time}</time>
-							<h3>{show.title}</h3>
-							<p>{show.description}</p>
-							<div class="card-actions" style="margin-top: 16px;">
-								<span class="tag">{show.host}</span>
-								<a class="cta-secondary" href="#player">Ascolta live</a>
-							</div>
 						</article>
 					))}
 				</div>
 			</section>
 
-			<section class="surface section" aria-labelledby="sponsor-title">
-				<div class="section-heading">
-					<div>
-						<span class="eyebrow">Partner e adv</span>
-						<h2 id="sponsor-title">Spazi sponsor più forti, senza sembrare un collage.</h2>
-					</div>
-					<p>Il modello richiama il sito attuale, ma porta ordine, respiro e un impatto visivo piu coerente.</p>
+			<section class="surface section split-layout" id="palinsesto" aria-labelledby="palinsesto-title">
+				<div class="split-copy">
+					<span class="eyebrow">Palinsesto</span>
+					<h2 id="palinsesto-title">Impaginazione piu editoriale, non griglia anonima.</h2>
+					<p>
+						Ho messo un blocco guida a sinistra e i programmi a destra, cosi il palinsesto ha un ingresso chiaro e non
+						sembra una sequenza infinita di riquadri tutti uguali.
+					</p>
 				</div>
-				<div class="sponsor-grid">
-					{sponsors.map((item) => (
-						<article class="sponsor-card">
-							<img src={item.image} alt={item.title} loading="lazy" />
-							<div class="sponsor-overlay">
-								<span class="tag">Sponsor layout</span>
-								<h3>{item.title}</h3>
-								<p>{item.description}</p>
-							</div>
-						</article>
-					))}
+				<div class="schedule-grid">
+					<div class="schedule-lead">
+						<div class="kicker">Fascia chiave</div>
+						<h3>Il drive time diventa il centro della homepage.</h3>
+						<p>
+							Il blocco principale introduce la giornata, mentre le altre trasmissioni seguono con una densita visiva piu leggera.
+						</p>
+						<a class="cta" href="#player">Ascolta il live</a>
+					</div>
+					<div class="schedule-grid">
+						{shows.map((show) => (
+							<article class="show-card">
+								<div class="show-meta">
+									<time>{show.time}</time>
+									<span>{show.host}</span>
+								</div>
+								<h3>{show.title}</h3>
+								<p>{show.description}</p>
+							</article>
+						))}
+					</div>
 				</div>
 			</section>
 
-			<section class="surface section" id="interviste" aria-labelledby="interviste-title">
-				<div class="section-heading">
-					<div>
-						<span class="eyebrow">Interviste e video</span>
-						<h2 id="interviste-title">Contenuti locali messi in scena come format.</h2>
-					</div>
-					<p>Ogni rubrica puo vivere in homepage, clip, social, podcast e playlist senza perdere identita.</p>
+			<section class="surface section split-layout" id="interviste" aria-labelledby="interviste-title">
+				<div class="split-copy">
+					<span class="eyebrow">Video e rubriche</span>
+					<h2 id="interviste-title">Le interviste respirano di piu e sembrano contenuti, non box promozionali.</h2>
+					<p>Uso immagine grande, titoli piu netti e descrizioni corte. Il colpo d'occhio adesso e molto piu immediato.</p>
 				</div>
-				<div class="shows-grid">
+				<div class="interview-grid">
 					{interviews.map((item) => (
 						<a class="interview-card" href={item.link}>
-							<div style="overflow:hidden; border-radius:18px; min-height:220px; margin-bottom:18px;">
-								<img src={item.image} alt={item.title} loading="lazy" style="height:100%; width:100%; object-fit:cover;" />
-							</div>
+							<img src={item.image} alt={item.title} loading="lazy" />
 							<span class="tag">{item.tag}</span>
 							<h3>{item.title}</h3>
 							<p>{item.description}</p>
@@ -402,18 +398,16 @@ const streamUrl = 'https://stream.live.vc.bbcmedia.co.uk/bbc_radio_one';
 				</div>
 			</section>
 
-			<section class="surface section" id="podcast" aria-labelledby="podcast-title">
-				<div class="section-heading">
-					<div>
-						<span class="eyebrow">Podcast e replay</span>
-						<h2 id="podcast-title">L’on demand entra in homepage con più valore.</h2>
-					</div>
-					<p>Mini player chiari, descrizioni sintetiche e percorsi naturali tra live e contenuti riascoltabili.</p>
+			<section class="surface section split-layout" id="podcast" aria-labelledby="podcast-title">
+				<div class="split-copy">
+					<span class="eyebrow">Podcast</span>
+					<h2 id="podcast-title">Audio on demand con blocchi piu puliti.</h2>
+					<p>Stesso contenuto, ma con gerarchia migliore: prima il titolo, poi il senso del format, poi il player.</p>
 				</div>
 				<div class="podcast-grid">
 					{podcasts.map((podcast) => (
 						<article class="podcast-card">
-							<div class="podcast-meta">{podcast.meta}</div>
+							<span class="tag">{podcast.meta}</span>
 							<h3>{podcast.title}</h3>
 							<p>{podcast.description}</p>
 							<audio class="podcast-player" controls preload="none">
@@ -427,65 +421,102 @@ const streamUrl = 'https://stream.live.vc.bbcmedia.co.uk/bbc_radio_one';
 			<section class="surface section" id="gallery" aria-labelledby="gallery-title">
 				<div class="section-heading">
 					<div>
-						<span class="eyebrow">Gallery</span>
-						<h2 id="gallery-title">Atmosfera locale, resa visiva più contemporanea.</h2>
+						<span class="eyebrow">Scene</span>
+						<h2 id="gallery-title">Una galleria che costruisce atmosfera invece di occupare spazio.</h2>
 					</div>
-					<p>Immagini grandi, ritmi editoriali piu puliti e meno rumore rispetto ad una galleria tradizionale.</p>
+					<p>Ho trasformato la gallery in una composizione piu simile a un magazine, con pesi visivi differenziati.</p>
 				</div>
 				<div class="gallery-grid">
-					{gallery.map((item) => (
-						<article class={item.className}>
+					<article class="gallery-card gallery-card--tall">
+						<img src={gallery[0].image} alt={gallery[0].title} loading="lazy" />
+						<div class="gallery-caption">
+							<strong style="display:block; margin-bottom:6px; font-size:1.15rem;">{gallery[0].title}</strong>
+							<span>{gallery[0].description}</span>
+						</div>
+					</article>
+					<article class="gallery-card gallery-card--wide">
+						<img src={gallery[1].image} alt={gallery[1].title} loading="lazy" />
+						<div class="gallery-caption">
+							<strong style="display:block; margin-bottom:6px; font-size:1.15rem;">{gallery[1].title}</strong>
+							<span>{gallery[1].description}</span>
+						</div>
+					</article>
+					<article class="gallery-card gallery-card--small">
+						<img src={gallery[2].image} alt={gallery[2].title} loading="lazy" />
+						<div class="gallery-caption">
+							<strong style="display:block; margin-bottom:6px; font-size:1.15rem;">{gallery[2].title}</strong>
+							<span>{gallery[2].description}</span>
+						</div>
+					</article>
+					<article class="gallery-card gallery-card--medium">
+						<img src={gallery[3].image} alt={gallery[3].title} loading="lazy" />
+						<div class="gallery-caption">
+							<strong style="display:block; margin-bottom:6px; font-size:1.15rem;">{gallery[3].title}</strong>
+							<span>{gallery[3].description}</span>
+						</div>
+					</article>
+				</div>
+			</section>
+
+			<section class="surface section">
+				<div class="section-heading">
+					<div>
+						<span class="eyebrow">Partner locali</span>
+						<h2>Gli sponsor tornano evidenti, ma con piu controllo visivo.</h2>
+					</div>
+					<p>Ho lasciato l'idea dei grandi visual sponsor, ma in una composizione piu ordinata e meno pesante.</p>
+				</div>
+				<div class="partner-grid">
+					<article class="sponsor-banner sponsor-banner--large">
+						<img src={sponsors[0].image} alt={sponsors[0].title} loading="lazy" />
+						<div class="banner-copy">
+							<span class="tag" style="color:#fff1e8;">Partner premium</span>
+							<h3 style="margin:10px 0 8px; font-family:'Syne', sans-serif; font-size:1.6rem; line-height:1.02;">{sponsors[0].title}</h3>
+							<p style="margin:0;">{sponsors[0].description}</p>
+						</div>
+					</article>
+					{sponsors.slice(1).map((item) => (
+						<article class="sponsor-banner">
 							<img src={item.image} alt={item.title} loading="lazy" />
-							<div class="gallery-caption">
-								<strong style="display:block; margin-bottom:6px; font-size:1.12rem;">{item.title}</strong>
-								<span class="muted">{item.description}</span>
+							<div class="banner-copy">
+								<span class="tag" style="color:#fff1e8;">Adv layout</span>
+								<h3 style="margin:10px 0 8px; font-family:'Syne', sans-serif; font-size:1.25rem; line-height:1.02;">{item.title}</h3>
+								<p style="margin:0;">{item.description}</p>
 							</div>
 						</article>
 					))}
 				</div>
 			</section>
 
-			<section class="surface section" aria-labelledby="playlist-title">
-				<div class="section-heading">
-					<div>
-						<span class="eyebrow">Top 3 playlist</span>
-						<h2 id="playlist-title">Una classifica che sembra parte del brand.</h2>
+			<section class="surface section split-layout">
+				<div class="split-copy">
+					<span class="eyebrow">Playlist e social</span>
+					<h2>Le parti secondarie restano utili ma non rubano la scena.</h2>
+					<p>Classifica e social chiudono la pagina come estensioni del brand, non come blocchi scollegati.</p>
+				</div>
+				<div style="display:grid; gap:22px;">
+					<div class="playlist-grid">
+						{topTracks.map((track) => (
+							<article class="playlist-card">
+								<div class="playlist-rank">{track.rank}</div>
+								<div>
+									<span class="tag">{track.artist}</span>
+									<h3>{track.title}</h3>
+									<p>{track.description}</p>
+								</div>
+							</article>
+						))}
 					</div>
-					<p>Più ordine tipografico, card compatte e un tono editoriale adatto a una radio locale premium.</p>
-				</div>
-				<div class="playlist-grid">
-					{topTracks.map((track) => (
-						<article class="playlist-card">
-							<div class="playlist-rank">{track.rank}</div>
-							<div>
-								<span class="tag">{track.artist}</span>
-								<h3>{track.title}</h3>
-								<p>{track.description}</p>
-							</div>
-						</article>
-					))}
-				</div>
-			</section>
-
-			<section class="surface section" id="social" aria-labelledby="social-title">
-				<div class="section-heading">
-					<div>
-						<span class="eyebrow">Canali social</span>
-						<h2 id="social-title">Una distribuzione più forte oltre la sola homepage.</h2>
-					</div>
-					<p>Social, video e community diventano estensione naturale della radio, non collegamenti accessori.</p>
-				</div>
-				<div class="social-grid">
-					{socialCards.map((item) => (
-						<article class="social-card">
-							<img src={item.image} alt={item.title} loading="lazy" />
-							<div class="social-overlay">
-								<span>{item.cta}</span>
+					<div class="social-grid" id="social">
+						{socialCards.map((item) => (
+							<article class="social-card">
+								<img src={item.image} alt={item.title} loading="lazy" />
+								<span class="tag">{item.cta}</span>
 								<h3>{item.title}</h3>
 								<p>{item.description}</p>
-							</div>
-						</article>
-					))}
+							</article>
+						))}
+					</div>
 				</div>
 			</section>
 
@@ -493,8 +524,8 @@ const streamUrl = 'https://stream.live.vc.bbcmedia.co.uk/bbc_radio_one';
 				<div class="footer-grid">
 					<div>
 						<div class="footer-brand">Radio Alba</div>
-						<p class="muted" style="max-width: 48ch; margin-top: 12px;">
-							Demo in Astro per rileggere l’identita della radio con una UI piu contemporanea, editoriale e pronta a evolvere.
+						<p class="muted" style="max-width: 44ch; margin-top: 12px;">
+							Restyle demo con nuova tipografia e una struttura molto piu ordinata, pensata per far percepire meglio contenuti e identita.
 						</p>
 					</div>
 					<div class="footer-contact">
