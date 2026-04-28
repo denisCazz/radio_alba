@@ -1,0 +1,570 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const shows = [
+	{
+		time: '06:00 - 09:00',
+		fascia: 'Mattina',
+		title: 'Prima Alba',
+		description: 'Rassegna stampa, meteo di Langa e traffico locale con un tono fresco e rapido.',
+		host: 'Marta e Davide',
+		color: 'warm',
+	},
+	{
+		time: '10:00 - 12:00',
+		fascia: 'Mattina',
+		title: 'Piazza Savona',
+		description: 'Attualita, eventi e voci dal territorio tra Alba, Bra, Roero e Astigiano.',
+		host: 'Elena Riva',
+		color: 'warm',
+	},
+	{
+		time: '16:00 - 18:00',
+		fascia: 'Pomeriggio',
+		title: 'Langhe Drive',
+		description: 'Hit, notizie utili e collegamenti veloci per chi rientra a casa o in cantina.',
+		host: 'Andre Bertaina',
+		color: 'mid',
+	},
+	{
+		time: '18:30 - 19:30',
+		fascia: 'Pomeriggio',
+		title: 'Barolo Tech',
+		description: 'Format digitale su startup locali, AI per PMI e innovazione applicata al territorio.',
+		host: 'Giulia Ferrero',
+		color: 'mid',
+	},
+	{
+		time: '20:00 - 21:00',
+		fascia: 'Sera',
+		title: 'Studio Aperto Langhe',
+		description: 'Interviste in studio a sindaci, artigiani, associazioni e protagonisti della provincia.',
+		host: 'Redazione Radio Alba',
+		color: 'dark',
+	},
+	{
+		time: 'Weekend',
+		fascia: 'Weekend',
+		title: 'Nebbiolo Sessions',
+		description: 'Selezione musicale piu ricercata, storytelling e live set in esterna dai festival.',
+		host: 'Guest selector',
+		color: 'dark',
+	},
+];
+
+const fasce = ['Mattina', 'Pomeriggio', 'Sera', 'Weekend'];
+---
+
+<Layout
+	title="Palinsesto — Radio Alba"
+	description="Il palinsesto di Radio Alba: tutti i programmi, le fasce orarie e i conduttori del territorio delle Langhe."
+>
+	<div class="page-shell">
+		<div class="page-content">
+
+			<header class="topbar" id="topbar" data-open="false">
+				<a class="brand" href="/" aria-label="Torna alla home Radio Alba">
+					<div class="brand-mark">RA</div>
+					<div class="brand-copy">
+						<strong>Radio Alba</strong>
+						<span>Digitale piu pulito, voce piu forte sul territorio.</span>
+					</div>
+				</a>
+				<nav class="nav-links" aria-label="Navigazione principale">
+					<a href="/palinsesto" aria-current="page">Palinsesto</a>
+					<a href="/#interviste">Video</a>
+					<a href="/#podcast">Podcast</a>
+					<a href="/#gallery">Scene</a>
+					<a href="/playlist">Social</a>
+				</nav>
+				<div class="topbar-actions">
+					<span class="live-pill">In onda</span>
+					<a class="cta" href="/#player">Ascolta live</a>
+				</div>
+				<button class="mobile-menu" id="menuToggle" type="button" aria-expanded="false" aria-controls="topbar">
+					<span class="sr-only">Apri menu</span>
+					☰
+				</button>
+			</header>
+
+			<main class="surface section pal-hero" aria-label="Intestazione palinsesto">
+				<div class="pal-hero-inner">
+					<div class="pal-hero-copy">
+						<span class="eyebrow">Palinsesto completo</span>
+						<h1 class="pal-title">La giornata di Radio Alba,<br />ora per ora.</h1>
+						<p>
+							Dal buongiorno con la rassegna stampa alle sessioni notturne del weekend.
+							Ogni fascia ha un tono, un conduttore e una missione editoriale precisa.
+						</p>
+						<div class="pal-hero-actions">
+							<a class="cta" href="/#player">Ascolta live</a>
+							<a class="cta-secondary" href="#mattina">Vedi tutti i programmi</a>
+						</div>
+					</div>
+					<div class="pal-hero-timeline">
+						{fasce.map((f) => (
+							<a class="pal-timeline-pill" href={`#${f.toLowerCase()}`}>
+								<span class="pal-tl-dot"></span>
+								<span>{f}</span>
+							</a>
+						))}
+					</div>
+				</div>
+			</main>
+
+			<div class="pal-layout">
+				<aside class="pal-guide surface section" aria-label="Guida al palinsesto">
+					<span class="eyebrow">Come funziona</span>
+					<h2 class="pal-guide-title">Un giorno tipo sulle Langhe.</h2>
+					<p>
+						Radio Alba segue il ritmo della provincia: informazione al mattino, compagnia nel drive time,
+						approfondimento la sera, cultura e musica nel weekend.
+					</p>
+
+					<div class="pal-guide-bands">
+						<div class="pal-band pal-band--warm">
+							<div class="pal-band-time">06 — 12</div>
+							<div>
+								<strong>Mattina</strong>
+								<p>Notizie, meteo, traffico e attualità locale. La radio come sveglia intelligente.</p>
+							</div>
+						</div>
+						<div class="pal-band pal-band--mid">
+							<div class="pal-band-time">16 — 19</div>
+							<div>
+								<strong>Pomeriggio</strong>
+								<p>Drive time e tech. La fascia commerciale più ascoltata della giornata.</p>
+							</div>
+						</div>
+						<div class="pal-band pal-band--dark">
+							<div class="pal-band-time">20 — 21</div>
+							<div>
+								<strong>Sera</strong>
+								<p>Approfondimento, interviste in studio e voci del territorio.</p>
+							</div>
+						</div>
+						<div class="pal-band pal-band--accent">
+							<div class="pal-band-time">W/E</div>
+							<div>
+								<strong>Weekend</strong>
+								<p>Selezione musicale, storytelling e set dai festival delle Langhe.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="pal-guide-cta">
+						<a class="cta" href="/#player">Ascolta adesso</a>
+						<a class="cta-secondary" href="/#contatti">Contatti commerciali</a>
+					</div>
+				</aside>
+
+				<div class="pal-programs">
+					{fasce.map((fascia) => {
+						const gruppo = shows.filter((s) => s.fascia === fascia);
+						if (gruppo.length === 0) return null;
+						return (
+							<section id={fascia.toLowerCase()} class="pal-group" aria-labelledby={`fascia-${fascia.toLowerCase()}`}>
+								<div class="pal-group-header">
+									<span class="pal-group-label" id={`fascia-${fascia.toLowerCase()}`}>{fascia}</span>
+									<div class="pal-group-line"></div>
+								</div>
+								<div class="pal-cards">
+									{gruppo.map((show, i) => (
+										<article class={`pal-card pal-card--${show.color}${i === 0 && fascia === 'Pomeriggio' ? ' pal-card--featured' : ''}`}>
+											<div class="pal-card-top">
+												<time class="pal-time-badge">{show.time}</time>
+												<div class="pal-host">
+													<div class="pal-host-avatar">{show.host.charAt(0)}</div>
+													<span>{show.host}</span>
+												</div>
+											</div>
+											<h3 class="pal-show-title">{show.title}</h3>
+											<p class="pal-show-desc">{show.description}</p>
+											<a class="chip-button pal-card-cta" href="/#player">Ascolta</a>
+										</article>
+									))}
+								</div>
+							</section>
+						);
+					})}
+				</div>
+			</div>
+
+			<footer class="surface section" id="contatti">
+				<div class="footer-grid">
+					<div>
+						<div class="footer-brand">Radio Alba</div>
+						<p class="muted" style="max-width: 44ch; margin-top: 12px;">
+							Restyle demo con nuova tipografia e una struttura molto piu ordinata, pensata per far percepire meglio contenuti e identita.
+						</p>
+					</div>
+					<div class="footer-contact">
+						<a href="tel:+390173280471">+39 0173 280471</a>
+						<a href="tel:+393347834975">+39 334 7834975</a>
+						<a href="mailto:info@radioalba.it">info@radioalba.it</a>
+						<a href="https://www.radioalba.it">radioalba.it</a>
+					</div>
+					<div class="footer-note">
+						Radio Alba srl<br />
+						C.so Europa 61, Alba<br />
+						P.IVA 03626990042<br />
+						<a href="/">Torna in home</a>
+					</div>
+				</div>
+			</footer>
+
+		</div>
+	</div>
+
+	<script is:inline>
+		const topbar = document.getElementById('topbar');
+		const menuToggle = document.getElementById('menuToggle');
+		menuToggle?.addEventListener('click', () => {
+			const isOpen = topbar?.getAttribute('data-open') === 'true';
+			topbar?.setAttribute('data-open', String(!isOpen));
+			menuToggle.setAttribute('aria-expanded', String(!isOpen));
+		});
+	</script>
+</Layout>
+
+<style>
+/* ── Palinsesto hero ── */
+.pal-hero {
+	background: linear-gradient(135deg, var(--ink) 0%, #2a1f1a 100%);
+	color: #fff9f4;
+}
+
+.pal-hero-inner {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 40px;
+	align-items: center;
+}
+
+.pal-hero-copy .eyebrow {
+	color: var(--accent-soft);
+}
+
+.pal-title {
+	margin: 14px 0 18px;
+	font-family: 'Syne', sans-serif;
+	font-size: clamp(2.4rem, 5vw, 4.2rem);
+	letter-spacing: -0.05em;
+	line-height: 1;
+	color: #fff9f4;
+}
+
+.pal-hero-copy p {
+	max-width: 54ch;
+	color: rgba(255, 249, 244, 0.65);
+	margin: 0 0 28px;
+}
+
+.pal-hero-actions {
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
+.pal-hero .cta {
+	background: var(--accent);
+	box-shadow: 0 8px 24px rgba(179, 83, 54, 0.35);
+}
+
+.pal-hero .cta-secondary {
+	color: #fff9f4;
+	border-color: rgba(255, 249, 244, 0.2);
+}
+
+.pal-hero-timeline {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	border-left: 2px solid rgba(255, 249, 244, 0.12);
+	padding-left: 24px;
+}
+
+.pal-timeline-pill {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 12px 0;
+	color: rgba(255, 249, 244, 0.5);
+	font-size: 0.88rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	text-decoration: none;
+	transition: color 0.2s;
+	border-bottom: 1px solid rgba(255, 249, 244, 0.07);
+}
+
+.pal-timeline-pill:last-child {
+	border-bottom: 0;
+}
+
+.pal-timeline-pill:hover {
+	color: #fff9f4;
+}
+
+.pal-tl-dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: var(--accent);
+	flex-shrink: 0;
+}
+
+/* ── Two-column layout ── */
+.pal-layout {
+	display: grid;
+	grid-template-columns: 340px 1fr;
+	gap: 22px;
+	align-items: start;
+}
+
+/* ── Guide sidebar ── */
+.pal-guide {
+	position: sticky;
+	top: 100px;
+}
+
+.pal-guide-title {
+	margin: 10px 0 14px;
+	font-family: 'Syne', sans-serif;
+	font-size: clamp(1.5rem, 2.2vw, 2rem);
+	letter-spacing: -0.05em;
+	line-height: 1;
+}
+
+.pal-guide > p {
+	color: var(--muted);
+	margin: 0 0 28px;
+}
+
+.pal-guide-bands {
+	display: grid;
+	gap: 10px;
+	margin-bottom: 28px;
+}
+
+.pal-band {
+	display: grid;
+	grid-template-columns: 52px 1fr;
+	gap: 14px;
+	align-items: start;
+	padding: 14px;
+	border-radius: var(--radius-md);
+}
+
+.pal-band strong {
+	display: block;
+	font-size: 0.92rem;
+	font-weight: 800;
+	margin-bottom: 4px;
+}
+
+.pal-band p {
+	margin: 0;
+	font-size: 0.84rem;
+	color: var(--muted);
+	line-height: 1.4;
+}
+
+.pal-band--warm { background: #fff8ef; }
+.pal-band--mid  { background: #fff3e4; }
+.pal-band--dark { background: #f5ede7; }
+.pal-band--accent { background: linear-gradient(135deg, #fff0e7, #fff8ef); }
+
+.pal-band-time {
+	font-family: 'Syne', sans-serif;
+	font-size: 0.76rem;
+	font-weight: 800;
+	color: var(--accent-strong);
+	letter-spacing: 0.05em;
+	line-height: 1.2;
+	padding-top: 2px;
+}
+
+.pal-guide-cta {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+/* ── Programs column ── */
+.pal-programs {
+	display: grid;
+	gap: 32px;
+}
+
+.pal-group-header {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	margin-bottom: 18px;
+}
+
+.pal-group-label {
+	font-family: 'Syne', sans-serif;
+	font-size: 1.5rem;
+	font-weight: 700;
+	letter-spacing: -0.04em;
+	white-space: nowrap;
+	color: var(--ink);
+}
+
+.pal-group-line {
+	flex: 1;
+	height: 1px;
+	background: var(--line);
+}
+
+.pal-cards {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 16px;
+}
+
+/* ── Program card ── */
+.pal-card {
+	background: var(--panel-strong);
+	border: 1px solid var(--line);
+	border-radius: var(--radius-lg);
+	padding: 24px;
+	display: grid;
+	gap: 12px;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pal-card:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 16px 40px rgba(107, 76, 50, 0.12);
+}
+
+.pal-card--featured {
+	grid-column: span 2;
+	background: linear-gradient(135deg, #fff3e4, #ffffff);
+	border-color: var(--accent-soft);
+}
+
+.pal-card--dark {
+	background: linear-gradient(180deg, #faf6f2, #ffffff);
+}
+
+.pal-card-top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+}
+
+.pal-time-badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 6px 14px;
+	border-radius: 999px;
+	background: var(--accent);
+	color: #fff9f4;
+	font-size: 0.8rem;
+	font-weight: 800;
+	letter-spacing: 0.04em;
+	font-style: normal;
+}
+
+.pal-card--warm .pal-time-badge  { background: var(--accent-strong); }
+.pal-card--mid .pal-time-badge   { background: var(--accent); }
+.pal-card--dark .pal-time-badge  { background: var(--ink); }
+.pal-card--accent .pal-time-badge { background: var(--highlight); color: var(--ink); }
+
+.pal-host {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 0.84rem;
+	color: var(--muted);
+	font-weight: 600;
+}
+
+.pal-host-avatar {
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	background: var(--accent-soft);
+	color: var(--accent-strong);
+	display: grid;
+	place-items: center;
+	font-size: 0.76rem;
+	font-weight: 800;
+	flex-shrink: 0;
+}
+
+.pal-show-title {
+	margin: 0;
+	font-family: 'Syne', sans-serif;
+	font-size: 1.3rem;
+	letter-spacing: -0.04em;
+	line-height: 1.05;
+}
+
+.pal-card--featured .pal-show-title {
+	font-size: 1.65rem;
+}
+
+.pal-show-desc {
+	margin: 0;
+	color: var(--muted);
+	font-size: 0.92rem;
+	line-height: 1.5;
+}
+
+.pal-card-cta {
+	justify-self: start;
+	font-size: 0.82rem;
+	padding: 8px 16px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+	.pal-layout {
+		grid-template-columns: 1fr;
+	}
+	.pal-guide {
+		position: static;
+	}
+	.pal-guide-bands {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.pal-hero-inner {
+		grid-template-columns: 1fr;
+	}
+	.pal-hero-timeline {
+		flex-direction: row;
+		border-left: none;
+		border-top: 2px solid rgba(255, 249, 244, 0.12);
+		padding-left: 0;
+		padding-top: 16px;
+		gap: 0;
+	}
+	.pal-timeline-pill {
+		border-bottom: none;
+		border-right: 1px solid rgba(255, 249, 244, 0.07);
+		padding: 8px 16px;
+	}
+}
+
+@media (max-width: 820px) {
+	.pal-cards {
+		grid-template-columns: 1fr;
+	}
+	.pal-card--featured {
+		grid-column: auto;
+	}
+	.pal-guide-bands {
+		grid-template-columns: 1fr;
+	}
+	.pal-hero-timeline {
+		flex-wrap: wrap;
+	}
+}
+</style>

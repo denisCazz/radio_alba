@@ -1,0 +1,494 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const topTracks = [
+	{
+		rank: '01',
+		title: 'Sotto i Portici',
+		artist: 'Marta Vento',
+		description: 'Pop raffinato, ritmica contemporanea e un immaginario fortemente piemontese.',
+	},
+	{
+		rank: '02',
+		title: 'Corsa in Corso Europa',
+		artist: 'Neve Chiara',
+		description: 'Brano radiofonico pensato per drive time, hook immediato e produzione pulita.',
+	},
+	{
+		rank: '03',
+		title: 'Langhe Neon',
+		artist: 'I Collinari',
+		description: 'Synth-pop locale per una playlist che suona moderna senza perdere radici.',
+	},
+];
+
+const socialCards = [
+	{
+		platform: 'instagram',
+		title: 'Instagram & Facebook',
+		handle: '@radioalba',
+		description: 'Stories, backstage e copertura eventi con grafiche coordinate al brand.',
+		cta: 'Segui su Instagram',
+		href: '#',
+		color: '#e1306c',
+	},
+	{
+		platform: 'youtube',
+		title: 'YouTube & Shorts',
+		handle: 'Radio Alba',
+		description: 'Interviste video, rubriche e format brevi pensati per distribuzione continua.',
+		cta: 'Guarda i video',
+		href: '#',
+		color: '#ff0000',
+	},
+	{
+		platform: 'whatsapp',
+		title: 'Community WhatsApp',
+		handle: 'Canale ufficiale',
+		description: 'Alert live, palinsesto e notizie utility con tono editoriale diretto.',
+		cta: 'Entra nel canale',
+		href: '#',
+		color: '#25d366',
+	},
+];
+---
+
+<Layout
+	title="Playlist & Social — Radio Alba"
+	description="La colonna sonora delle Langhe: classifica, playlist e community social di Radio Alba."
+>
+	<div class="page-shell">
+		<div class="page-content">
+
+			<header class="topbar" id="topbar" data-open="false">
+				<a class="brand" href="/" aria-label="Torna alla home Radio Alba">
+					<div class="brand-mark">RA</div>
+					<div class="brand-copy">
+						<strong>Radio Alba</strong>
+						<span>Digitale piu pulito, voce piu forte sul territorio.</span>
+					</div>
+				</a>
+				<nav class="nav-links" aria-label="Navigazione principale">
+					<a href="/palinsesto">Palinsesto</a>
+					<a href="/#interviste">Video</a>
+					<a href="/#podcast">Podcast</a>
+					<a href="/#gallery">Scene</a>
+					<a href="/playlist" aria-current="page">Social</a>
+				</nav>
+				<div class="topbar-actions">
+					<span class="live-pill">In onda</span>
+					<a class="cta" href="/#player">Ascolta live</a>
+				</div>
+				<button class="mobile-menu" id="menuToggle" type="button" aria-expanded="false" aria-controls="topbar">
+					<span class="sr-only">Apri menu</span>
+					☰
+				</button>
+			</header>
+
+			<!-- Page hero -->
+			<section class="pl-hero surface section" aria-label="Intro playlist e social">
+				<span class="eyebrow">Playlist & Social</span>
+				<h1 class="pl-hero-title">La colonna sonora<br />delle Langhe.</h1>
+				<p class="pl-hero-sub">
+					Tre tracce che rappresentano il suono del territorio. Poi trovaci dove sei.
+				</p>
+			</section>
+
+			<!-- Chart -->
+			<section class="surface section" aria-labelledby="chart-title">
+				<div class="pl-chart-header">
+					<div>
+						<span class="eyebrow">Classifica</span>
+						<h2 id="chart-title" class="pl-section-title">Top 3 questa settimana</h2>
+					</div>
+					<p class="muted pl-chart-sub">Selezione editoriale della redazione Radio Alba. Aggiornata ogni lunedì.</p>
+				</div>
+
+				<ol class="pl-chart" aria-label="Classifica settimanale">
+					{topTracks.map((track, i) => (
+						<li class="pl-track" style={`--delay: ${i * 80}ms`}>
+							<div class="pl-track-rank" aria-hidden="true">{track.rank}</div>
+							<div class="pl-track-body">
+								<div class="pl-track-meta">
+									<span class="pl-track-artist">{track.artist}</span>
+									<span class="pl-track-line"></span>
+								</div>
+								<h3 class="pl-track-title">{track.title}</h3>
+								<p class="pl-track-desc">{track.description}</p>
+							</div>
+							<div class="pl-track-play" aria-hidden="true">
+								<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+									<path d="M8 7l6 3-6 3V7z" fill="currentColor"/>
+								</svg>
+							</div>
+						</li>
+					))}
+				</ol>
+			</section>
+
+			<!-- Social brand extension -->
+			<section class="pl-social-section surface" aria-labelledby="social-title">
+				<div class="pl-social-header">
+					<div>
+						<span class="eyebrow" style="color: var(--accent-soft);">Community</span>
+						<h2 id="social-title" class="pl-social-title">Seguici dove sei.</h2>
+						<p class="pl-social-intro">
+							Radio Alba fuori dall'etere: contenuti pensati per ogni piattaforma,
+							con lo stesso tono editoriale che senti in radio.
+						</p>
+					</div>
+					<a class="cta pl-social-cta-main" href="/#contatti">Parla con noi</a>
+				</div>
+
+				<div class="pl-social-grid">
+					{socialCards.map((item) => (
+						<a class="pl-social-card" href={item.href} style={`--platform-color: ${item.color}`} aria-label={item.title}>
+							<div class="pl-social-card-top">
+								<span class="pl-social-platform">{item.platform}</span>
+								<span class="pl-social-handle">{item.handle}</span>
+							</div>
+							<h3 class="pl-social-card-title">{item.title}</h3>
+							<p class="pl-social-card-desc">{item.description}</p>
+							<span class="pl-social-card-cta">
+								{item.cta}
+								<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+									<path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+							</span>
+						</a>
+					))}
+				</div>
+
+				<div class="pl-social-footer">
+					<span>Radio Alba · Alba, Piemonte</span>
+					<span>·</span>
+					<span>Voce del territorio da 1987</span>
+				</div>
+			</section>
+
+			<footer class="surface section" id="contatti">
+				<div class="footer-grid">
+					<div>
+						<div class="footer-brand">Radio Alba</div>
+						<p class="muted" style="max-width: 44ch; margin-top: 12px;">
+							Restyle demo con nuova tipografia e una struttura molto piu ordinata, pensata per far percepire meglio contenuti e identita.
+						</p>
+					</div>
+					<div class="footer-contact">
+						<a href="tel:+390173280471">+39 0173 280471</a>
+						<a href="tel:+393347834975">+39 334 7834975</a>
+						<a href="mailto:info@radioalba.it">info@radioalba.it</a>
+						<a href="https://www.radioalba.it">radioalba.it</a>
+					</div>
+					<div class="footer-note">
+						Radio Alba srl<br />
+						C.so Europa 61, Alba<br />
+						P.IVA 03626990042<br />
+						<a href="/">Torna in home</a>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+
+	<script is:inline>
+		const topbar = document.getElementById('topbar');
+		const menuToggle = document.getElementById('menuToggle');
+		menuToggle?.addEventListener('click', () => {
+			const isOpen = topbar?.getAttribute('data-open') === 'true';
+			topbar?.setAttribute('data-open', String(!isOpen));
+			menuToggle.setAttribute('aria-expanded', String(!isOpen));
+		});
+	</script>
+</Layout>
+
+<style>
+/* ── Hero ── */
+.pl-hero {
+	background: linear-gradient(135deg, #fff8ef 0%, #fdf5ee 100%);
+	border-bottom: none;
+}
+
+.pl-hero-title {
+	margin: 14px 0 16px;
+	font-family: 'Syne', sans-serif;
+	font-size: clamp(3rem, 7vw, 6rem);
+	letter-spacing: -0.05em;
+	line-height: 0.96;
+}
+
+.pl-hero-sub {
+	margin: 0;
+	color: var(--muted);
+	max-width: 52ch;
+	font-size: 1.05rem;
+}
+
+/* ── Chart ── */
+.pl-chart-header {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 20px;
+	align-items: end;
+	margin-bottom: 28px;
+	padding-bottom: 18px;
+	border-bottom: 1px solid var(--line);
+}
+
+.pl-section-title {
+	margin: 8px 0 0;
+	font-family: 'Syne', sans-serif;
+	font-size: clamp(1.8rem, 3vw, 2.8rem);
+	letter-spacing: -0.05em;
+	line-height: 1;
+}
+
+.pl-chart-sub {
+	max-width: 38ch;
+	text-align: right;
+}
+
+.pl-chart {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: 0;
+}
+
+.pl-track {
+	display: grid;
+	grid-template-columns: 120px 1fr auto;
+	gap: 0 32px;
+	align-items: center;
+	padding: 28px 0;
+	border-bottom: 1px solid var(--line);
+	transition: background 0.2s ease;
+	cursor: pointer;
+	border-radius: 12px;
+	padding-left: 8px;
+	padding-right: 8px;
+	margin: 0 -8px;
+}
+
+.pl-track:last-child {
+	border-bottom: 0;
+}
+
+.pl-track:hover {
+	background: rgba(179, 83, 54, 0.04);
+}
+
+.pl-track:hover .pl-track-play {
+	color: var(--accent);
+	transform: scale(1.15);
+}
+
+.pl-track-rank {
+	font-family: 'Syne', sans-serif;
+	font-size: clamp(4rem, 7vw, 7rem);
+	font-weight: 800;
+	letter-spacing: -0.06em;
+	line-height: 1;
+	color: var(--accent-soft);
+	user-select: none;
+}
+
+.pl-track-body {
+	display: grid;
+	gap: 8px;
+}
+
+.pl-track-meta {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.pl-track-artist {
+	font-size: 0.78rem;
+	font-weight: 800;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--accent-strong);
+	white-space: nowrap;
+}
+
+.pl-track-line {
+	flex: 1;
+	height: 1px;
+	background: var(--accent-soft);
+}
+
+.pl-track-title {
+	margin: 0;
+	font-family: 'Syne', sans-serif;
+	font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+	letter-spacing: -0.04em;
+	line-height: 1;
+}
+
+.pl-track-desc {
+	margin: 0;
+	color: var(--muted);
+	font-size: 0.9rem;
+	max-width: 60ch;
+}
+
+.pl-track-play {
+	color: var(--line-strong);
+	transition: color 0.2s ease, transform 0.2s ease;
+	flex-shrink: 0;
+}
+
+/* ── Social section ── */
+.pl-social-section {
+	background: var(--ink);
+	color: #fff9f4;
+	padding: 48px;
+}
+
+.pl-social-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	gap: 24px;
+	margin-bottom: 40px;
+}
+
+.pl-social-title {
+	margin: 12px 0 14px;
+	font-family: 'Syne', sans-serif;
+	font-size: clamp(2rem, 4vw, 3.5rem);
+	letter-spacing: -0.05em;
+	line-height: 1;
+	color: #fff9f4;
+}
+
+.pl-social-intro {
+	margin: 0;
+	max-width: 52ch;
+	color: rgba(255, 249, 244, 0.55);
+}
+
+.pl-social-cta-main {
+	background: var(--accent);
+	color: #fff9f4;
+	box-shadow: 0 8px 24px rgba(179, 83, 54, 0.4);
+	white-space: nowrap;
+	flex-shrink: 0;
+}
+
+.pl-social-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 16px;
+	margin-bottom: 40px;
+}
+
+.pl-social-card {
+	display: grid;
+	gap: 12px;
+	padding: 24px;
+	border-radius: var(--radius-lg);
+	border: 1px solid rgba(255, 249, 244, 0.1);
+	background: rgba(255, 249, 244, 0.04);
+	text-decoration: none;
+	color: #fff9f4;
+	transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.pl-social-card:hover {
+	border-color: var(--platform-color, var(--accent));
+	background: rgba(255, 249, 244, 0.08);
+	transform: translateY(-3px);
+}
+
+.pl-social-card-top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.pl-social-platform {
+	font-size: 0.75rem;
+	font-weight: 800;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--platform-color, var(--accent));
+}
+
+.pl-social-handle {
+	font-size: 0.8rem;
+	color: rgba(255, 249, 244, 0.35);
+}
+
+.pl-social-card-title {
+	margin: 0;
+	font-family: 'Syne', sans-serif;
+	font-size: 1.15rem;
+	letter-spacing: -0.03em;
+	line-height: 1.1;
+	color: #fff9f4;
+}
+
+.pl-social-card-desc {
+	margin: 0;
+	font-size: 0.88rem;
+	color: rgba(255, 249, 244, 0.5);
+	line-height: 1.5;
+}
+
+.pl-social-card-cta {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 0.82rem;
+	font-weight: 700;
+	color: var(--platform-color, var(--accent));
+	margin-top: 4px;
+}
+
+.pl-social-footer {
+	display: flex;
+	gap: 14px;
+	align-items: center;
+	font-size: 0.82rem;
+	color: rgba(255, 249, 244, 0.3);
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	border-top: 1px solid rgba(255, 249, 244, 0.08);
+	padding-top: 24px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+	.pl-chart-header {
+		grid-template-columns: 1fr;
+	}
+	.pl-chart-sub {
+		text-align: left;
+	}
+}
+
+@media (max-width: 820px) {
+	.pl-social-section {
+		padding: 28px 22px;
+	}
+	.pl-social-header {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	.pl-social-grid {
+		grid-template-columns: 1fr;
+	}
+	.pl-track {
+		grid-template-columns: 72px 1fr auto;
+		gap: 0 16px;
+	}
+	.pl-track-rank {
+		font-size: clamp(3rem, 10vw, 4rem);
+	}
+}
+</style>

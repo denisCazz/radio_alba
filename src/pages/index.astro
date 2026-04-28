@@ -221,11 +221,11 @@ const streamUrl = 'https://stream.live.vc.bbcmedia.co.uk/bbc_radio_one';
 				</a>
 
 				<nav class="nav-links" aria-label="Navigazione principale">
-					<a href="#palinsesto">Palinsesto</a>
+					<a href="/palinsesto">Palinsesto</a>
 					<a href="#interviste">Video</a>
 					<a href="#podcast">Podcast</a>
 					<a href="#gallery">Scene</a>
-					<a href="#social">Social</a>
+					<a href="/playlist">Social</a>
 				</nav>
 
 				<div class="topbar-actions">
@@ -253,7 +253,7 @@ const streamUrl = 'https://stream.live.vc.bbcmedia.co.uk/bbc_radio_one';
 
 						<div class="hero-actions">
 							<a class="cta" href="#player">Avvia player</a>
-							<a class="cta-secondary" href="#palinsesto">Vedi programmi</a>
+							<a class="cta-secondary" href="/palinsesto">Vedi programmi</a>
 							<a class="chip-button" href="#contatti">Contatti commerciali</a>
 						</div>
 
@@ -356,7 +356,7 @@ const streamUrl = 'https://stream.live.vc.bbcmedia.co.uk/bbc_radio_one';
 						sembra una sequenza infinita di riquadri tutti uguali.
 					</p>
 				</div>
-				<div class="schedule-grid">
+				<div class="schedule-col">
 					<div class="schedule-lead">
 						<div class="kicker">Fascia chiave</div>
 						<h3>Il drive time diventa il centro della homepage.</h3>
@@ -365,7 +365,7 @@ const streamUrl = 'https://stream.live.vc.bbcmedia.co.uk/bbc_radio_one';
 						</p>
 						<a class="cta" href="#player">Ascolta il live</a>
 					</div>
-					<div class="schedule-grid">
+					<div class="shows-grid">
 						{shows.map((show) => (
 							<article class="show-card">
 								<div class="show-meta">
@@ -418,44 +418,48 @@ const streamUrl = 'https://stream.live.vc.bbcmedia.co.uk/bbc_radio_one';
 				</div>
 			</section>
 
-			<section class="surface section" id="gallery" aria-labelledby="gallery-title">
-				<div class="section-heading">
+			<section class="gallery-stage surface" id="gallery" aria-labelledby="gallery-title">
+				<div class="gallery-stage-header">
 					<div>
-						<span class="eyebrow">Scene</span>
-						<h2 id="gallery-title">Una galleria che costruisce atmosfera invece di occupare spazio.</h2>
+						<span class="eyebrow" style="color: var(--accent-soft);">Scene</span>
+						<h2 id="gallery-title" class="gallery-stage-title">Radio Alba fuori dal microfono.</h2>
 					</div>
-					<p>Ho trasformato la gallery in una composizione piu simile a un magazine, con pesi visivi differenziati.</p>
+					<p class="gallery-stage-sub">Festival, studio, piazze, community. Impressioni dal vivo.</p>
 				</div>
-				<div class="gallery-grid">
-					<article class="gallery-card gallery-card--tall">
-						<img src={gallery[0].image} alt={gallery[0].title} loading="lazy" />
-						<div class="gallery-caption">
-							<strong style="display:block; margin-bottom:6px; font-size:1.15rem;">{gallery[0].title}</strong>
-							<span>{gallery[0].description}</span>
+
+				<div class="polaroid-stage">
+					<!-- Hero polaroid -->
+					<figure class="polaroid polaroid--hero" aria-label={gallery[0].title}>
+						<div class="polaroid-photo">
+							<img src={gallery[0].image} alt={gallery[0].title} loading="lazy" />
 						</div>
-					</article>
-					<article class="gallery-card gallery-card--wide">
-						<img src={gallery[1].image} alt={gallery[1].title} loading="lazy" />
-						<div class="gallery-caption">
-							<strong style="display:block; margin-bottom:6px; font-size:1.15rem;">{gallery[1].title}</strong>
-							<span>{gallery[1].description}</span>
-						</div>
-					</article>
-					<article class="gallery-card gallery-card--small">
-						<img src={gallery[2].image} alt={gallery[2].title} loading="lazy" />
-						<div class="gallery-caption">
-							<strong style="display:block; margin-bottom:6px; font-size:1.15rem;">{gallery[2].title}</strong>
-							<span>{gallery[2].description}</span>
-						</div>
-					</article>
-					<article class="gallery-card gallery-card--medium">
-						<img src={gallery[3].image} alt={gallery[3].title} loading="lazy" />
-						<div class="gallery-caption">
-							<strong style="display:block; margin-bottom:6px; font-size:1.15rem;">{gallery[3].title}</strong>
-							<span>{gallery[3].description}</span>
-						</div>
-					</article>
+						<figcaption class="polaroid-caption">{gallery[0].title}</figcaption>
+					</figure>
+
+					<!-- Scatter cluster -->
+					<div class="polaroid-cluster">
+						<figure class="polaroid polaroid--a" aria-label={gallery[1].title}>
+							<div class="polaroid-photo">
+								<img src={gallery[1].image} alt={gallery[1].title} loading="lazy" />
+							</div>
+							<figcaption class="polaroid-caption">{gallery[1].title}</figcaption>
+						</figure>
+						<figure class="polaroid polaroid--b" aria-label={gallery[2].title}>
+							<div class="polaroid-photo">
+								<img src={gallery[2].image} alt={gallery[2].title} loading="lazy" />
+							</div>
+							<figcaption class="polaroid-caption">{gallery[2].title}</figcaption>
+						</figure>
+						<figure class="polaroid polaroid--c" aria-label={gallery[3].title}>
+							<div class="polaroid-photo">
+								<img src={gallery[3].image} alt={gallery[3].title} loading="lazy" />
+							</div>
+							<figcaption class="polaroid-caption">{gallery[3].title}</figcaption>
+						</figure>
+					</div>
 				</div>
+
+				<p class="gallery-stage-note">{gallery[0].description} · {gallery[1].description}</p>
 			</section>
 
 			<section class="surface section">
@@ -488,35 +492,37 @@ const streamUrl = 'https://stream.live.vc.bbcmedia.co.uk/bbc_radio_one';
 				</div>
 			</section>
 
-			<section class="surface section split-layout">
-				<div class="split-copy">
-					<span class="eyebrow">Playlist e social</span>
-					<h2>Le parti secondarie restano utili ma non rubano la scena.</h2>
-					<p>Classifica e social chiudono la pagina come estensioni del brand, non come blocchi scollegati.</p>
-				</div>
-				<div style="display:grid; gap:22px;">
-					<div class="playlist-grid">
-						{topTracks.map((track) => (
-							<article class="playlist-card">
-								<div class="playlist-rank">{track.rank}</div>
-								<div>
-									<span class="tag">{track.artist}</span>
-									<h3>{track.title}</h3>
-									<p>{track.description}</p>
+			<section class="surface brand-close" id="social" aria-labelledby="brand-close-title">
+				<div class="bc-chart">
+					<div class="bc-chart-header">
+						<div>
+							<span class="eyebrow">Playlist</span>
+							<h2 id="brand-close-title" class="bc-chart-title">Top 3 questa settimana</h2>
+						</div>
+						<a class="chip-button" href="/playlist">Vedi tutto</a>
+					</div>
+					<ol class="bc-tracks" aria-label="Classifica settimanale">
+						{topTracks.map((track, i) => (
+							<li class="bc-track" style={`--i: ${i}`}>
+								<span class="bc-rank" aria-hidden="true">{track.rank}</span>
+								<div class="bc-track-body">
+									<span class="bc-artist">{track.artist}</span>
+									<strong class="bc-title">{track.title}</strong>
+									<p class="bc-desc">{track.description}</p>
 								</div>
-							</article>
+							</li>
 						))}
-					</div>
-					<div class="social-grid" id="social">
-						{socialCards.map((item) => (
-							<article class="social-card">
-								<img src={item.image} alt={item.title} loading="lazy" />
-								<span class="tag">{item.cta}</span>
-								<h3>{item.title}</h3>
-								<p>{item.description}</p>
-							</article>
-						))}
-					</div>
+					</ol>
+				</div>
+
+				<div class="bc-social">
+					<p class="bc-social-label eyebrow" style="color: var(--accent-soft);">Seguici</p>
+					{socialCards.map((item) => (
+						<a class="bc-social-link" href="#">
+							<span class="bc-social-name">{item.title}</span>
+							<span class="bc-social-cta">{item.cta} →</span>
+						</a>
+					))}
 				</div>
 			</section>
 
